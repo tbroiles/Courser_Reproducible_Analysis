@@ -38,7 +38,7 @@ print(paste0('Mean: ', sprintf('%5.1f',mean(steps_per_day)), ', Median: ', media
 The peak in activity before 9 am.  It was computed below to have a peak at 8:35 am.
 
 
-```{r, dpi=36, out.width="600px", out.height="600px"}
+```{r}
 y_mean_steps <- tapply(data$steps, data$interval, mean, na.rm = T)
 pre_x_interval <- sort(unique(data$interval))
 x_interval <- strptime(SPRINTF(pre_x_interval), '%H%M', tz = 'UTC')
@@ -51,7 +51,7 @@ print(paste0('The maximum number of steps taken typically occurs at ', format(ge
 
 Missing values are replaced with the mean of a specific time interval.  Based on the results below, it is clear that replacing missing values significantly reduces the number of days with 0 steps, and shifts the distribution higher.  Further, the mean is shifted upward to 10766.2, and the median is also shifted upward to 10766.2.  I initially thought this was suspicious, but I looked closely at the output data and found that my replacement approach results in a value of 10766.2 for days that are completely filled with NA values, and becomes the distributions median value.  Consequently, I conclude that it's a big a coincidence, or the course instructor has a weird sense of humor.
 
-```{r, dpi=36, out.width="600px", out.height="600px"}
+```{r}
 
 na_index <- is.na(data$steps)
 print(paste('There are', sum(na_index),'missing values.'))
@@ -77,7 +77,7 @@ This behavior suggests that the subject has a weekday job in an office from 9am-
 
 On weekends the subject likely sleeps later, and spends their time walking more throughout the day.
 
-```{r, dpi=36, out.width="600px", out.height="600px"}
+```{r}
 
 data$dow <- as.factor(weekdays(data$timestamp))
 data$weekends <- as.factor(data$dow %in% c('Saturday','Sunday'))

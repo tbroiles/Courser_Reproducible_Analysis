@@ -52,7 +52,7 @@ generic_df <- data.frame(x_interval, y_mean_steps)
 ggplot(generic_df,aes(x_interval, y_mean_steps)) + geom_line() + xlab('Time') + ylab('# of steps') + scale_x_datetime(labels = date_format("%R"))
 ```
 
-<img src="PA1_template_files/figure-html/unnamed-chunk-3-1.png" title="" alt="" width="600px" height="600px" />
+![](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
 
 ```r
 print(paste0('The maximum number of steps taken typically occurs at ', format(generic_df$x_interval[which(generic_df$y_mean_steps %in% max(generic_df$y_mean_steps))], "%H:%M"), '.'))
@@ -85,7 +85,7 @@ rang2 = range(steps_per_day2, na.rm = T)
 qplot(steps_per_day2, binwidth = (rang2[2]-rang2[1])/20, xlab = 'Steps per day', ylab = 'Frequency')
 ```
 
-<img src="PA1_template_files/figure-html/unnamed-chunk-4-1.png" title="" alt="" width="600px" height="600px" />
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
 
 ```r
 print(paste0('Mean: ', sprintf('%5.1f',mean(steps_per_day2)), ', Median: ', sprintf('%5.1f',median(steps_per_day2))))
@@ -128,4 +128,4 @@ generic_df <- data.frame(x_interval, y_mean_steps, dow)
 ggplot(generic_df,aes(x_interval, y_mean_steps)) + geom_line() + xlab('Time') + ylab('# of steps') + scale_x_datetime(labels = date_format("%R")) + facet_grid(dow ~ .)
 ```
 
-<img src="PA1_template_files/figure-html/unnamed-chunk-5-1.png" title="" alt="" width="600px" height="600px" />
+![](PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
